@@ -220,6 +220,7 @@ def show_explorer():
     st.write("""
     Explorer
     """)
+    getDataset1()
 def show_conclusions():
     st.write("""
     conclusion
