@@ -239,7 +239,7 @@ def show_intro():
     """)
 def show_explorer():
     st.write("""
-    # Data1: Web Scrape
+    Data1: Web Scrape
     """)
     getDataset1()
 def show_conclusions():
