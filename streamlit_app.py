@@ -83,7 +83,7 @@ def getDataset1():
     df = pd.DataFrame(data)
 
     chart = alt.Chart(df).mark_bar().encode(
-        x='x',
+        x=alt.X('x', sort=None),
         y='y'
     ).properties(
         width=400,
