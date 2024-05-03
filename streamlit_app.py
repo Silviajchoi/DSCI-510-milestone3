@@ -233,11 +233,11 @@ page = st.sidebar.selectbox("Choose a page", ["Introduction", "Data Explorer", "
 if page == "Introduction":
     show_intro()
 elif page == "Data Explorer":
-    def show_explorer()
+    show_explorer()
 elif page == "Conclusions":
-    def show_conclusions()
+    show_conclusions()
 elif page == "Research Objectives":
-    def show_research_objectives()
+    show_research_objectives()
 
 # getDataset1()
 # getDataset2()
