@@ -79,12 +79,17 @@ def getDataset1():
         x=alt.X('state', sort=None),
         y='total_case'
     )
-    # .properties(
-        # width=400,
-        # height=300
-    # )
-    
+
+    st.write("""Total Case Data (States)""")
     st.altair_chart(case_chart, use_container_width=True)
+
+    death_chart = alt.Chart(death_tb).mark_bar().encode(
+        x=alt.X('state', sort=None),
+        y='total_death'
+    )
+
+    st.write("""Total Death Data (States)""")
+    st.altair_chart(death_chart, use_container_width=True)
 
 
 def getDataset2():
@@ -234,7 +239,7 @@ def show_intro():
     """)
 def show_explorer():
     st.write("""
-    Explorer
+    # Data1: Web Scrape
     """)
     getDataset1()
 def show_conclusions():
