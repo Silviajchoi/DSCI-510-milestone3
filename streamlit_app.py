@@ -228,7 +228,13 @@ def getDataset3():
 
 def show_intro():
     st.write("""
-    Welcome to our data exploration webapp! My name is Silvia Choi, and in this project, I have analyzed the impact of vaccination on COVID-19 death rates across various states. This webapp is designed to allow users to explore the relationships between state-wide vaccination rates, case outcomes, and mortality data. By navigating through this interactive platform, you can gain insights into how these variables interact across different regions and times.
+    Welcome to our data exploration webapp! 
+    
+    My name is Silvia Choi, and in this project, I have analyzed the impact of vaccination on COVID-19 death rates across various states. 
+    
+    This webapp is designed to allow users to explore the relationships between state-wide vaccination rates, case outcomes, and mortality data. 
+    
+    By navigating through this interactive platform, you can gain insights into how these variables interact across different regions and times.
     """)
 def show_explorer():
     st.write("""
