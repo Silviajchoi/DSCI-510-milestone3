@@ -228,27 +228,41 @@ def getDataset3():
 
 def show_intro():
     st.write("""
-    Introduction
+    Welcome to our data exploration webapp! My name is Silvia Choi, and in this project, I have analyzed the impact of vaccination on COVID-19 death rates across various states. This webapp is designed to allow users to explore the relationships between state-wide vaccination rates, case outcomes, and mortality data. By navigating through this interactive platform, you can gain insights into how these variables interact across different regions and times.
     """)
 def show_explorer():
+    st.write("""
+    Explore the impact of COVID-19 through interactive bar charts in this section of our webapp. Each dataset used in the study is visualized as follows:
+    """)
     st.subheader("""
     Data1: Web Scrape
+    """)
+    st.write("""
+    Bar charts display the total number of COVID-19 cases and deaths per state, offering insights into the overall impact of the pandemic across the country.
     """)
     getDataset1()
 
     st.subheader("""
     Data2: API
     """)
+    st.write("""
+    Bar charts show vaccination data by state, illustrating the progression and geographical distribution of vaccination efforts.
+    """)
     getDataset2()
 
     st.subheader("""
     Data3: Public API
     """)
+    st.write("""
+    Bar charts detail positive and negative case rates along with hospitalization durations by state, providing a deeper understanding of the healthcare burden and outcome severity.
+    """)
     getDataset3()
-    
+    st.write("""
+    These interactive bar charts allow you to select specific states and time frames, helping you examine how vaccination rates correlate with case outcomes and death rates. By manipulating these visualizations, you can uncover trends and patterns, gaining a comprehensive understanding of the dynamics at play in the pandemic response.
+    """)
 def show_conclusions():
     st.write("""
-    conclusion
+    The analysis conducted in this project reveals that there is no significant correlation between vaccination rates and death rates from COVID-19 across the states studied. Despite the critical role of vaccines in preventing severe illness and controlling the spread of the virus, our findings suggest that other factors may also significantly influence mortality rates. This conclusion is crucial for policymakers and health professionals as it highlights the complexity of managing a pandemic and the need for multifaceted public health strategies.
     """)
 def show_research_objectives():
     st.write("""
