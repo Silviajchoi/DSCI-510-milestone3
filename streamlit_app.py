@@ -209,7 +209,7 @@ def getDataset3():
 
         hospitalizedCurrently_state = []
         hospitalizedCurrently_value = []
-        for hospitalizedCurrently in sorted_vaccineInitiatedRatio:
+        for hospitalizedCurrently in sorted_hospitalizedCurrently:
             hospitalizedCurrently_state.append(hospitalizedCurrently[0])
             hospitalizedCurrently_value.append(hospitalizedCurrently[1])
         
