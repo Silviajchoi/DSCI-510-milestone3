@@ -98,15 +98,11 @@ def getDataset2():
     url = "https://api.covidactnow.org/v2/states.csv?apiKey=e898e47cb4434fc6aa046f8881836e01"
     csvData = pd.read_csv(url, encoding='cp949')
     vaccineData = csvData[['state', 'actuals.vaccinesDistributed', 'actuals.vaccinationsInitiated', 'actuals.vaccinationsCompleted', 'metrics.vaccinationsInitiatedRatio', 'metrics.vaccinationsCompletedRatio']]
+
+    state_vaccineInitiatedRatio_info = {}
+    state_vaccineCompleteRatio_info = {}
     
-    # file open
-    f_w = open('vaccinated_cleaned.csv', 'w', encoding="UTF-8", newline='')
-    wr = csv.writer(f_w)
-    
-    # data cleaning
-    # print('state', 'vaccineDistributed', 'vaccineInitiated', 'vaccineCompleted', 'vaccineInitiatedRatio', 'vaccineCompleteRatio')
-    wr.writerow(['state', 'vaccineDistributed', 'vaccineInitiated', 'vaccineCompleted', 'vaccineInitiatedRatio', 'vaccineCompleteRatio'])
-    
+    # data cleaning    
     for i in range(vaccineData.shape[0]):
         state = vaccineData.loc[i]['state']
         vaccineDistributed = vaccineData.loc[i]['actuals.vaccinesDistributed']
@@ -130,11 +126,49 @@ def getDataset2():
         if (math.isnan(vaccineData.loc[i]['metrics.vaccinationsCompletedRatio'])) :
             vaccineCompleteRatio = 0
         
-        # export cleaned dataset
-        # print(state, vaccineDistributed, vaccineInitiated, vaccineCompleted, vaccineInitiatedRatio, vaccineCompleteRatio)
-        wr.writerow([state, vaccineDistributed, vaccineInitiated, vaccineCompleted, vaccineInitiatedRatio, vaccineCompleteRatio])
+        state_vaccineInitiatedRatio_info[state] = vaccineInitiatedRatio
+        state_vaccineCompleteRatio_info[state] = vaccineCompleteRatio
+
+    sorted_vaccineInitiatedRatio = sorted(state_vaccineInitiatedRatio_info.items(), key = lambda item: item[1], reverse = True)
+    sorted_vaccineCompleteRatio = sorted(state_vaccineCompleteRatio_info.items(), key = lambda item: item[1], reverse = True)
+
+    vaccineInitiatedRatio_state = []
+    vaccineInitiatedRatio_value = []
+    for vaccineInitiatedRatio in sorted_vaccineInitiatedRatio:
+        vaccineInitiatedRatio_state.append(vaccineInitiatedRatio[0])
+        vaccineInitiatedRatio_value.append(vaccineInitiatedRatio[1])
     
-    # print("Cleaned Dataset \"vaccinated_cleaned.csv\" is exported")
+    vaccineInitiatedRatio_tb = pd.DataFrame(
+       {"state": vaccineInitiatedRatio_state, "vaccine Initiated Ratio": vaccineInitiatedRatio_value}
+    )
+    vaccineInitiatedRatio_tb.columns = ["state", 'vaccine Initiated Ratio']
+
+    vaccineCompleteRatio_state = []
+    vaccineCompleteRatio_value = []
+    for vaccineCompleteRatio in sorted_vaccineCompleteRatio:
+        vaccineCompleteRatio_state.append(vaccineCompleteRatio[0])
+        vaccineCompleteRatio_value.append(vaccineCompleteRatio[1])
+    
+    vaccineCompleteRatio_tb = pd.DataFrame(
+       {"state": vaccineCompleteRatio_state, "vaccine Complete Ratio": vaccineCompleteRatio_value}
+    )
+    vaccineCompleteRatio_tb.columns = ["state", 'vaccine Complete Ratio']
+
+    vaccineInitiatedRatio_chart = alt.Chart(vaccineInitiatedRatio_tb).mark_bar().encode(
+        x=alt.X('state', sort=None),
+        y='vaccine Initiated Ratio'
+    )
+
+    st.write("""vaccine Initiated Ratio (States)""")
+    st.altair_chart(vaccineInitiatedRatio_chart, use_container_width=True)
+
+    vaccineCompleteRatio_chart = alt.Chart(vaccineCompleteRatio_tb).mark_bar().encode(
+        x=alt.X('state', sort=None),
+        y='vaccine Complete Ratio'
+    )
+
+    st.write("""vaccine Complete Ratio (States)""")
+    st.altair_chart(vaccineCompleteRatio_chart, use_container_width=True)    
 
 def getDataset3():
     # Public API Read
@@ -242,6 +276,11 @@ def show_explorer():
     Data1: Web Scrape
     """)
     getDataset1()
+
+    st.write("""
+    Data2: API
+    """)
+    getDataset2()
 def show_conclusions():
     st.write("""
     conclusion
@@ -276,13 +315,3 @@ elif page == "Conclusions":
     show_conclusions()
 elif page == "Research Objectives":
     show_research_objectives()
-
-# getDataset1()
-# getDataset2()
-# getDataset3()
-
-# mergeDataset()
-
-# st.write("""# Author Information
-# name: Silvia Choi
-# """)
