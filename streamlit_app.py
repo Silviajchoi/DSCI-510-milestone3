@@ -65,7 +65,7 @@ def getDataset1():
     death_tb = pd.DataFrame(death_temp)
     death_tb.columns = ["state", 'total_death']
 
-    st.line_chart(death_tb)
+    st.line_chart(case_tb)
 
 def getDataset2():
     # API Read
