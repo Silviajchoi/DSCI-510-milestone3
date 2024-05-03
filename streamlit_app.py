@@ -275,18 +275,21 @@ def show_research_objectives():
     Dataset 3: Positive/negative case rates and hospitalization durations by state.
     I aimed to investigate whether there was a correlation between vaccination rates and total deaths, suggesting the effectiveness of vaccines in reducing mortality rates from COVID-19.
 
-5. What did you discover/what were your conclusions?
-The analysis revealed that vaccination does not have a significant effect on the death rate from COVID-19. This finding suggests that while vaccines are critical in controlling the spread of the disease and reducing severe outcomes, other factors may also significantly influence mortality rates.
+    5. Q: What did you discover/what were your conclusions?
 
-6. What difficulties did you have in completing the project?
-The project was quite challenging as it was my first experience working through such a structured data science workflow from data acquisition to deploying a web application. Identifying and integrating three different datasets that were relevant to my research question proved particularly difficult. Additionally, building a web application to showcase the results was a new and challenging task.
+    A:The analysis revealed that vaccination does not have a significant effect on the death rate from COVID-19. This finding suggests that while vaccines are critical in controlling the spread of the disease and reducing severe outcomes, other factors may also significantly influence mortality rates.
 
-7. What skills did you wish you had while you were doing the project?
-Throughout the project, I felt that stronger coding skills, particularly in data manipulation and web application development, would have made the process smoother. Additionally, more experience in selecting and utilizing datasets that support specific research topics would have been beneficial.
+    6. Q: What difficulties did you have in completing the project?
 
-8. What would you do "next" to expand or augment the project?
-To expand the project, I would like to incorporate datasets on the economic aspects of vaccination, such as the cost of vaccines. Analyzing whether financial factors influence vaccination rates could provide deeper insights into public health strategies and vaccine uptake.
+    A: The project was quite challenging as it was my first experience working through such a structured data science workflow from data acquisition to deploying a web application. Identifying and integrating three different datasets that were relevant to my research question proved particularly difficult. Additionally, building a web application to showcase the results was a new and challenging task.
 
+    7. Q: What skills did you wish you had while you were doing the project?
+    
+    A: Throughout the project, I felt that stronger coding skills, particularly in data manipulation and web application development, would have made the process smoother. Additionally, more experience in selecting and utilizing datasets that support specific research topics would have been beneficial.
+
+    8. Q: What would you do "next" to expand or augment the project?
+    
+    A: To expand the project, I would like to incorporate datasets on the economic aspects of vaccination, such as the cost of vaccines. Analyzing whether financial factors influence vaccination rates could provide deeper insights into public health strategies and vaccine uptake.
     """)
 
 # Main app structure
