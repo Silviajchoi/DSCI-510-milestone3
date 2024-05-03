@@ -277,7 +277,7 @@ def show_research_objectives():
 
     5. Q: What did you discover/what were your conclusions?
 
-    A:The analysis revealed that vaccination does not have a significant effect on the death rate from COVID-19. This finding suggests that while vaccines are critical in controlling the spread of the disease and reducing severe outcomes, other factors may also significantly influence mortality rates.
+    A: The analysis revealed that vaccination does not have a significant effect on the death rate from COVID-19. This finding suggests that while vaccines are critical in controlling the spread of the disease and reducing severe outcomes, other factors may also significantly influence mortality rates.
 
     6. Q: What difficulties did you have in completing the project?
 
