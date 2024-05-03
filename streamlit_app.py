@@ -75,22 +75,16 @@ def getDataset1():
     )
     death_tb.columns = ["state", 'total_death']
 
-    chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-    data = {
-        'x': case_state,
-        'y' : case_value
-    }
-    df = pd.DataFrame(data)
-
-    chart = alt.Chart(df).mark_bar().encode(
-        x=alt.X('x', sort=None),
-        y='y'
-    ).properties(
-        width=400,
-        height=300
+    case_chart = alt.Chart(case_tb).mark_bar().encode(
+        x=alt.X('state', sort=None),
+        y='total_case'
     )
+    # .properties(
+        # width=400,
+        # height=300
+    # )
     
-    st.altair_chart(chart, use_container_width=True)
+    st.altair_chart(case_chart, use_container_width=True)
 
 
 def getDataset2():
