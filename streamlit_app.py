@@ -75,8 +75,13 @@ def getDataset1():
     death_tb.columns = ["state", 'total_death']
 
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+    data = {
+        'x': case_state,
+        'y' : case_value
+    }
     st.bar_chart(
-        case_value
+        data
+        # case_value
        # chart_data, x="state", y="total_case"
     )
 
