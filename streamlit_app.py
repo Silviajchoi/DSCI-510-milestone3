@@ -266,13 +266,14 @@ def show_conclusions():
     """)
 def show_research_objectives():
     st.write("""
-    4. What did you set out to study?
-The objective of my project was to explore the effectiveness of vaccinations in influencing mortality rates due to COVID-19 across different states. The datasets I chose included:
+    4. Q: What did you set out to study?
+    
+    A: The objective of my project was to explore the effectiveness of vaccinations in influencing mortality rates due to COVID-19 across different states. The datasets I chose included:
 
-Dataset 1: Total cases and deaths per state.
-Dataset 2: Vaccination data by state.
-Dataset 3: Positive/negative case rates and hospitalization durations by state.
-I aimed to investigate whether there was a correlation between vaccination rates and total deaths, suggesting the effectiveness of vaccines in reducing mortality rates from COVID-19.
+    Dataset 1: Total cases and deaths per state.
+    Dataset 2: Vaccination data by state.
+    Dataset 3: Positive/negative case rates and hospitalization durations by state.
+    I aimed to investigate whether there was a correlation between vaccination rates and total deaths, suggesting the effectiveness of vaccines in reducing mortality rates from COVID-19.
 
 5. What did you discover/what were your conclusions?
 The analysis revealed that vaccination does not have a significant effect on the death rate from COVID-19. This finding suggests that while vaccines are critical in controlling the spread of the disease and reducing severe outcomes, other factors may also significantly influence mortality rates.
