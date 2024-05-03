@@ -79,11 +79,9 @@ def getDataset1():
         'x': case_state,
         'y' : case_value
     }
-    st.bar_chart(
-        data
-        # case_value
-       # chart_data, x="state", y="total_case"
-    )
+    df = pd.DataFrame(data)
+
+    st.bar_chart(df)
 
 
 def getDataset2():
