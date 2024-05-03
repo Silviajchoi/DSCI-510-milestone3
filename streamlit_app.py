@@ -109,7 +109,7 @@ def getDataset2():
         vaccineDistributed = vaccineData.loc[i]['actuals.vaccinesDistributed']
         vaccineInitiated = vaccineData.loc[i]['actuals.vaccinationsInitiated']
         vaccineCompleted = vaccineData.loc[i]['actuals.vaccinationsCompleted']
-        hospitalizedCurrently = vaccineData.loc[i]['metrics.vaccinationsInitiatedRatio']
+        vaccineInitiatedRatio = vaccineData.loc[i]['metrics.vaccinationsInitiatedRatio']
         vaccineCompleteRatio = vaccineData.loc[i]['metrics.vaccinationsCompletedRatio']
     
         if (math.isnan(vaccineData.loc[i]['actuals.vaccinesDistributed'])) :
