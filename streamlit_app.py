@@ -93,6 +93,7 @@ def getDataset1():
 
 
 def getDataset2():
+    state_abbr = {'CA' : 'California', 'TX' : 'Texas', 'FL' : 'Florida', 'NY' : 'New York', 'IL' : 'Illinois', 'PA' : 'Pennsylvania', 'OH' : 'Ohio', 'NC' : 'North Carolina', 'GA' : 'Georgia', 'MI' : 'Michigan', 'NJ' : 'New Jersey', 'TN' : 'Tennessee', 'AZ' : 'Arizona', 'MA' : 'Massachusetts', 'IN' : 'Indiana', 'VA' : 'Virginia', 'WI' : 'Wisconsin', 'WA' : 'Washington', 'SC' : 'South Carolina', 'MN' : 'Minnesota', 'MO' :  'Missouri', 'CO' : 'Colorado', 'KY' : 'Kentucky', 'AL' : 'Alabama', 'LA' : 'Louisiana', 'OK' : 'Oklahoma', 'MD' : 'Maryland', 'UT' : 'Utah', 'IA' : 'Iowa', 'AR' : 'Arkansas', 'MS' : 'Mississippi', 'KS' : 'Kansas', 'CT' : 'Connecticut', 'NV' : 'Nevada', 'OR' : 'Oregon', 'NM' : 'New Mexico', 'WV' : 'West Virginia', 'NE' : 'Nebraska', 'ID' : 'Idaho', 'RI' : 'Rhode Island', 'NH' : 'New Hampshire', 'MT' : 'Montana', 'DE' : 'Delaware', 'HI' : 'Hawaii', 'AK' : 'Alaska', 'ME' : 'Maine', 'ND' : 'North Dakota', 'SD' : 'South Dakota', 'WY' : 'Wyoming', 'DC' : 'District Of Columbia', 'VT' : 'Vermont'}
     # API Read
     # API key: e898e47cb4434fc6aa046f8881836e01
     url = "https://api.covidactnow.org/v2/states.csv?apiKey=e898e47cb4434fc6aa046f8881836e01"
@@ -104,7 +105,7 @@ def getDataset2():
     
     # data cleaning    
     for i in range(vaccineData.shape[0]):
-        state = vaccineData.loc[i]['state']
+        state = state_abbr[vaccineData.loc[i]['state']]
         vaccineDistributed = vaccineData.loc[i]['actuals.vaccinesDistributed']
         vaccineInitiated = vaccineData.loc[i]['actuals.vaccinationsInitiated']
         vaccineCompleted = vaccineData.loc[i]['actuals.vaccinationsCompleted']
