@@ -196,12 +196,55 @@ def mergeDataset():
     f_r2.close()
     f_r3.close()
 
-getDataset1()
-getDataset2()
-getDataset3()
+def show_intro():
+    st.write("""
+    Introduction
+    """)
+def show_explorer():
+    st.write("""
+    Explorer
+    """)
+def show_conclusions():
+    st.write("""
+    conclusion
+    """)
+def show_research_objectives():
+    st.write("""
+    4. The objective of my project was to explore the effectiveness of vaccinations in influencing mortality rates due to COVID-19 across different states. The datasets I chose included:
 
-mergeDataset()
+    Dataset 1: Total cases and deaths per state.
+    Dataset 2: Vaccination data by state.
+    Dataset 3: Positive/negative case rates and hospitalization durations by state.
+    I aimed to investigate whether there was a correlation between vaccination rates and total deaths, suggesting the effectiveness of vaccines in reducing mortality rates from COVID-19.
+    
+    5. The analysis revealed that vaccination does not have a significant effect on the death rate from COVID-19. This finding suggests that while vaccines are critical in controlling the spread of the disease and reducing severe outcomes, other factors may also significantly influence mortality rates.
+    
+    6. The project was quite challenging as it was my first experience working through such a structured data science workflow from data acquisition to deploying a web application. Identifying and integrating three different datasets that were relevant to my research question proved particularly difficult. Additionally, building a web application to showcase the results was a new and challenging task.
+    
+    7. Throughout the project, I felt that stronger coding skills, particularly in data manipulation and web application development, would have made the process smoother. Additionally, more experience in selecting and utilizing datasets that support specific research topics would have been beneficial.
+    
+    8. To expand the project, I would like to incorporate datasets on the economic aspects of vaccination, such as the cost of vaccines. Analyzing whether financial factors influence vaccination rates could provide deeper insights into public health strategies and vaccine uptake.
+    """)
 
-st.write("""# Author Information
-name: Silvia Choi
-""")
+# Main app structure
+st.title("Corona Virus Data Explorer")
+page = st.sidebar.selectbox("Choose a page", ["Introduction", "Data Explorer", "Conclusions", "Research Objectives"])
+
+if page == "Introduction":
+    show_intro()
+elif page == "Data Explorer":
+    def show_explorer():
+elif page == "Conclusions":
+    def show_conclusions():
+elif page == "Research Objectives":
+    def show_research_objectives():
+
+# getDataset1()
+# getDataset2()
+# getDataset3()
+
+# mergeDataset()
+
+# st.write("""# Author Information
+# name: Silvia Choi
+# """)
