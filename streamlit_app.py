@@ -231,17 +231,17 @@ def show_intro():
     Introduction
     """)
 def show_explorer():
-    st.write("""
+    st.subheader("""
     Data1: Web Scrape
     """)
     getDataset1()
 
-    st.write("""
+    st.subheader("""
     Data2: API
     """)
     getDataset2()
 
-    st.write("""
+    st.subheader("""
     Data3: Public API
     """)
     getDataset3()
