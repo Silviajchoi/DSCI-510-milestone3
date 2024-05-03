@@ -52,22 +52,30 @@ def getDataset1():
     sorted_case = sorted(state_case_info.items(), key = lambda item: item[1], reverse = True)
     sorted_death = sorted(state_death_info.items(), key = lambda item: item[1], reverse = True)
 
-    case_temp = []
+    case_state = []
+    case_value = []
     for case in sorted_case:
-        case_temp.append([case[0], case[1]])
+        case_state.append(case[0])
+        case_value.append(case[1])
     
-    case_tb = pd.DataFrame(case_temp)
+    case_tb = pd.DataFrame(
+       {"state": case_state, "total_case": case_value}
+    )
     case_tb.columns = ["state", 'total_case']
 
-    death_temp = []
+    death_state = []
+    death_value = []
     for death in sorted_death:
-        death_temp.append([death[0], death[1]])
+        death_state.append(death[0])
+        death_value.append(death[1])
     
-    death_tb = pd.DataFrame(death_temp)
+    death_tb = pd.DataFrame(
+       {"state": death_state, "total_death": death_value}
+    )
     death_tb.columns = ["state", 'total_death']
 
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-    st.bar_chart(chart_data)
+    st.bar_chart(case_tb)
 
 def getDataset2():
     # API Read
