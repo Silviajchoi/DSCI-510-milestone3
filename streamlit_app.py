@@ -271,8 +271,11 @@ def show_research_objectives():
     A: The objective of my project was to explore the effectiveness of vaccinations in influencing mortality rates due to COVID-19 across different states. The datasets I chose included:
 
     Dataset 1: Total cases and deaths per state.
+    
     Dataset 2: Vaccination data by state.
+    
     Dataset 3: Positive/negative case rates and hospitalization durations by state.
+    
     I aimed to investigate whether there was a correlation between vaccination rates and total deaths, suggesting the effectiveness of vaccines in reducing mortality rates from COVID-19.
 
     5. Q: What did you discover/what were your conclusions?
