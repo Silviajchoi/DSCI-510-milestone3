@@ -67,7 +67,7 @@ def getDataset2():
     wr = csv.writer(f_w)
     
     # data cleaning
-    print('state', 'vaccineDistributed', 'vaccineInitiated', 'vaccineCompleted', 'vaccineInitiatedRatio', 'vaccineCompleteRatio')
+    # print('state', 'vaccineDistributed', 'vaccineInitiated', 'vaccineCompleted', 'vaccineInitiatedRatio', 'vaccineCompleteRatio')
     wr.writerow(['state', 'vaccineDistributed', 'vaccineInitiated', 'vaccineCompleted', 'vaccineInitiatedRatio', 'vaccineCompleteRatio'])
     
     for i in range(vaccineData.shape[0]):
@@ -94,10 +94,10 @@ def getDataset2():
             vaccineCompleteRatio = 0
         
         # export cleaned dataset
-        print(state, vaccineDistributed, vaccineInitiated, vaccineCompleted, vaccineInitiatedRatio, vaccineCompleteRatio)
+        # print(state, vaccineDistributed, vaccineInitiated, vaccineCompleted, vaccineInitiatedRatio, vaccineCompleteRatio)
         wr.writerow([state, vaccineDistributed, vaccineInitiated, vaccineCompleted, vaccineInitiatedRatio, vaccineCompleteRatio])
     
-    print("Cleaned Dataset \"vaccinated_cleaned.csv\" is exported")
+    # print("Cleaned Dataset \"vaccinated_cleaned.csv\" is exported")
 
 def getDataset3():
     # Public API Read
