@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import math
 import numpy as np
+import altair as alt
 
 def getDataset1():    
     # web sracpe
