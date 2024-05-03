@@ -4,6 +4,7 @@ import csv
 import requests
 from bs4 import BeautifulSoup
 import math
+import numpy as np
 
 def getDataset1():    
     # web sracpe
