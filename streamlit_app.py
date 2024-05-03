@@ -205,26 +205,26 @@ def getDataset3():
         if state in state_abbr:
             state_hospitalizedCurrently_info[state_abbr[state]] = hospitalizedCurrently
 
-        sorted_hospitalizedCurrently = sorted(state_hospitalizedCurrently_info.items(), key = lambda item: item[1], reverse = True)
+    sorted_hospitalizedCurrently = sorted(state_hospitalizedCurrently_info.items(), key = lambda item: item[1], reverse = True)
 
-        hospitalizedCurrently_state = []
-        hospitalizedCurrently_value = []
-        for hospitalizedCurrently in sorted_hospitalizedCurrently:
-            hospitalizedCurrently_state.append(hospitalizedCurrently[0])
-            hospitalizedCurrently_value.append(hospitalizedCurrently[1])
-        
-        hospitalizedCurrently_tb = pd.DataFrame(
-           {"state": hospitalizedCurrently_state, "currently hospitalized": hospitalizedCurrently_value}
-        )
-        hospitalizedCurrently_tb.columns = ["state", 'currently hospitalized']
-
-        hospitalizedCurrently_chart = alt.Chart(hospitalizedCurrently_tb).mark_bar().encode(
-            x=alt.X('state', sort=None),
-            y='currently hospitalized'
-        )
+    hospitalizedCurrently_state = []
+    hospitalizedCurrently_value = []
+    for hospitalizedCurrently in sorted_hospitalizedCurrently:
+        hospitalizedCurrently_state.append(hospitalizedCurrently[0])
+        hospitalizedCurrently_value.append(hospitalizedCurrently[1])
     
-        st.write("""currently hospitalized (States)""")
-        st.altair_chart(hospitalizedCurrently_chart, use_container_width=True)
+    hospitalizedCurrently_tb = pd.DataFrame(
+       {"state": hospitalizedCurrently_state, "currently hospitalized": hospitalizedCurrently_value}
+    )
+    hospitalizedCurrently_tb.columns = ["state", 'currently hospitalized']
+
+    hospitalizedCurrently_chart = alt.Chart(hospitalizedCurrently_tb).mark_bar().encode(
+        x=alt.X('state', sort=None),
+        y='currently hospitalized'
+    )
+
+    st.write("""currently hospitalized (States)""")
+    st.altair_chart(hospitalizedCurrently_chart, use_container_width=True)
 
 def show_intro():
     st.write("""
