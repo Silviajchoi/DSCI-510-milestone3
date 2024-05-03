@@ -126,9 +126,10 @@ def getDataset2():
             
         if (math.isnan(vaccineData.loc[i]['metrics.vaccinationsCompletedRatio'])) :
             vaccineCompleteRatio = 0
-        
-        state_vaccineInitiatedRatio_info[state_abbr[state + ' ']] = vaccineInitiatedRatio
-        state_vaccineCompleteRatio_info[state_abbr[state + ' ']] = vaccineCompleteRatio
+
+        if state in state_abbr:
+            state_vaccineInitiatedRatio_info[state_abbr[state]] = vaccineInitiatedRatio
+            state_vaccineCompleteRatio_info[state_abbr[state]] = vaccineCompleteRatio
 
     sorted_vaccineInitiatedRatio = sorted(state_vaccineInitiatedRatio_info.items(), key = lambda item: item[1], reverse = True)
     sorted_vaccineCompleteRatio = sorted(state_vaccineCompleteRatio_info.items(), key = lambda item: item[1], reverse = True)
