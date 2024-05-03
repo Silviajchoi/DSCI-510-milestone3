@@ -42,17 +42,17 @@ def getDataset1():
                 new_death = '0'
             
             # export cleaned dataset
-            print(state, total_case, new_case, total_death, new_death)
+            # print(state, total_case, new_case, total_death, new_death)
             wr.writerow([state, total_case, new_case, total_death, new_death])
         
         else :
-            print('state', 'total_case', 'new_case', 'total_death', 'new_death')
+            # print('state', 'total_case', 'new_case', 'total_death', 'new_death')
             wr.writerow(['state', 'total_case', 'new_case', 'total_death', 'new_death'])
             wr.writerow([td_list[1], td_list[2], td_list[3][1:], td_list[4], td_list[5][1:]])
         
         tr_cnt = tr_cnt + 1
         
-    print("Cleaned Dataset \"web_scrape_states_covid_info_cleaned.csv\" is exported")
+    # print("Cleaned Dataset \"web_scrape_states_covid_info_cleaned.csv\" is exported")
     f_w.close()
 
 def getDataset2():
@@ -188,8 +188,8 @@ def mergeDataset():
     
     tb = pd.DataFrame(temp)
     tb.columns = ["state", 'total_case', 'new_case', 'total_death', 'new_death', 'death_rate', 'vaccineDistributed','vaccineInitiated','vaccineCompleted','vaccineInitiatedRatio','vaccineCompleteRatio', 'positive','probableCases','negative','hospitalizedCurrently']
-    print("Sorted in Descending Order (Total Case)")
-    print(tb)
+    # print("Sorted in Descending Order (Total Case)")
+    # print(tb)
     tb.to_csv('Choi_Silvia_proj2.csv', sep=',')
          
     f_r1.close()
