@@ -42,19 +42,15 @@ def getDataset1():
                 new_death = '0'
             
             # export cleaned dataset
-            print(state, total_case, new_case, total_death, new_death)
             data[state] = [int(total_case.replace(',', '')), int(new_case.replace(',', '')), int(total_death.replace(',', '')), int(new_death.replace(',', ''))]
             state_case_info[state] = int(total_case.replace(',', ''))
             state_death_info[state] = int(total_death.replace(',', ''))
         
         tr_cnt = tr_cnt + 1
         
-    print(data)
     sorted_case = sorted(state_case_info.items(), key = lambda item: item[1], reverse = True)
     sorted_death = sorted(state_death_info.items(), key = lambda item: item[1], reverse = True)
 
-    print(sorted_case)
-    print(sorted_death)
     case_temp = []
     for case in sorted_case:
         case_temp.append([case[0], case[1]])
