@@ -5,14 +5,14 @@ import requests
 from bs4 import BeautifulSoup
 import math
 
-def getDataset1():
+def getDataset1():    
     # web sracpe
     url = "https://www.worldometers.info/coronavirus/country/us/"
     res = requests.get(url)
     
-    # file open
-    f_w = open('web_scrape_states_covid_info_cleaned.csv', 'w', encoding="UTF-8", newline='')
-    wr = csv.writer(f_w)
+    data = {}
+    state_case_info = {}
+    state_death_info = {}
     
     # find table contents
     soup = BeautifulSoup(res.content, 'html.parser')
@@ -42,18 +42,34 @@ def getDataset1():
                 new_death = '0'
             
             # export cleaned dataset
-            # print(state, total_case, new_case, total_death, new_death)
-            wr.writerow([state, total_case, new_case, total_death, new_death])
-        
-        else :
-            # print('state', 'total_case', 'new_case', 'total_death', 'new_death')
-            wr.writerow(['state', 'total_case', 'new_case', 'total_death', 'new_death'])
-            wr.writerow([td_list[1], td_list[2], td_list[3][1:], td_list[4], td_list[5][1:]])
+            print(state, total_case, new_case, total_death, new_death)
+            data[state] = [int(total_case.replace(',', '')), int(new_case.replace(',', '')), int(total_death.replace(',', '')), int(new_death.replace(',', ''))]
+            state_case_info[state] = int(total_case.replace(',', ''))
+            state_death_info[state] = int(total_death.replace(',', ''))
         
         tr_cnt = tr_cnt + 1
         
-    # print("Cleaned Dataset \"web_scrape_states_covid_info_cleaned.csv\" is exported")
-    f_w.close()
+    print(data)
+    sorted_case = sorted(state_case_info.items(), key = lambda item: item[1], reverse = True)
+    sorted_death = sorted(state_death_info.items(), key = lambda item: item[1], reverse = True)
+
+    print(sorted_case)
+    print(sorted_death)
+    case_temp = []
+    for case in sorted_case:
+        case_temp.append([case[0], case[1]])
+    
+    case_tb = pd.DataFrame(case_temp)
+    case_tb.columns = ["state", 'total_case']
+
+    death_temp = []
+    for death in sorted_death:
+        death_temp.append([death[0], death[1]])
+    
+    death_tb = pd.DataFrame(death_temp)
+    death_tb.columns = ["state", 'total_death']
+
+    st.bar_chart(death_tb)
 
 def getDataset2():
     # API Read
