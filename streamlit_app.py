@@ -81,7 +81,15 @@ def getDataset1():
     }
     df = pd.DataFrame(data)
 
-    st.bar_chart(df)
+    chart = alt.Chart(df).mark_bar().encode(
+        x='x',
+        y='y'
+    ).properties(
+        width=400,
+        height=300
+    )
+    
+    st.altair_chart(chart, use_container_width=True)
 
 
 def getDataset2():
