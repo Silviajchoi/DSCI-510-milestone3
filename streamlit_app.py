@@ -76,7 +76,8 @@ def getDataset1():
 
     chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
     st.bar_chart(
-       chart_data, x="state", y="total_case"
+        case_value
+       # chart_data, x="state", y="total_case"
     )
 
 
