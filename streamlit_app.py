@@ -53,12 +53,6 @@ def getDataset1():
     sorted_case = sorted(state_case_info.items(), key = lambda item: item[1], reverse = True)
     sorted_death = sorted(state_death_info.items(), key = lambda item: item[1], reverse = True)
 
-        
-        tr_cnt = tr_cnt + 1
-        
-    sorted_case = sorted(state_case_info.items(), key = lambda item: item[1], reverse = True)
-    sorted_death = sorted(state_death_info.items(), key = lambda item: item[1], reverse = True)
-
     case_state = []
     case_value = []
     for case in sorted_case:
