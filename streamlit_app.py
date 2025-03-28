@@ -44,9 +44,25 @@ def getDataset1():
                 new_death = '0'
             
             # export cleaned dataset
-            data[state] = [int(total_case.replace(',', '')), int(new_case.replace(',', '')), int(total_death.replace(',', '')), int(new_death.replace(',', ''))]
-            state_case_info[state] = int(total_case.replace(',', ''))
-            state_death_info[state] = int(total_death.replace(',', ''))
+            # data[state] = [int(total_case.replace(',', '')), int(new_case.replace(',', '')), int(total_death.replace(',', '')), int(new_death.replace(',', ''))]
+            # state_case_info[state] = int(total_case.replace(',', ''))
+            # state_death_info[state] = int(total_death.replace(',', ''))
+
+                        # export cleaned dataset
+            data[state] = [
+                clean_number(total_case),
+                clean_number(new_case),
+                clean_number(total_death),
+                clean_number(new_death)
+            ]
+            state_case_info[state] = clean_number(total_case)
+            state_death_info[state] = clean_number(total_death)
+        
+        tr_cnt = tr_cnt + 1
+        
+    sorted_case = sorted(state_case_info.items(), key = lambda item: item[1], reverse = True)
+    sorted_death = sorted(state_death_info.items(), key = lambda item: item[1], reverse = True)
+
         
         tr_cnt = tr_cnt + 1
         
